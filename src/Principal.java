@@ -20,8 +20,8 @@ public class Principal {
         int alturaDireita = altura(no.direita);
 
         return Math.abs(alturaEsquerda - alturaDireita) <= 1
-        && estaBalanceada(no.esquerda) 
-        && estaBalanceada(no.direita);
+            && estaBalanceada(no.esquerda) 
+            && estaBalanceada(no.direita);
     }
 
     public static void main(String[] args) {
@@ -42,7 +42,7 @@ public class Principal {
 
             switch (opcao) {
                 case 1:
-                    abb = new NoArvore();
+                    abb = null;
                     System.out.println("Árvore criada!");
                     System.out.println();
                     break;
@@ -50,10 +50,10 @@ public class Principal {
                     if (abb == null) {
                         System.out.println("Árvore vazia!");
                     } else {
-                        abb.imprime(abb, true);
+                        abb.imprime(abb); // Chamada ao método principal
+                        System.out.println();
                     }
-                    System.out.println();
-                    break;
+                    break;                
                 case 3:
                     System.out.print("Digite o valor a ser buscado: ");
                     int valorBusca = scanner.nextInt();
@@ -68,10 +68,15 @@ public class Principal {
                 case 4:
                     System.out.print("Digite o valor a ser inserido: ");
                     int valorInserir = scanner.nextInt();
-                    abb = abb.insere(abb, valorInserir);
+                    if (abb == null) {
+                        abb = new NoArvore();
+                        abb.valor = valorInserir;
+                    } else {
+                        abb = abb.insere(abb, valorInserir);
+                    }
                     System.out.println("Valor inserido.");
                     System.out.println();
-                    break;
+                    break;                
                 case 5:
                     System.out.print("Digite o valor a ser removido: ");
                     int valorRemover = scanner.nextInt();

@@ -3,17 +3,29 @@ public class NoArvore {
     NoArvore direita;
     NoArvore esquerda;
 
-    public void imprime(NoArvore a, boolean isFirst) {
-        // Em-ordem (esquerda, raiz, direita)
-        if (a != null){
-            imprime (a.esquerda, isFirst);
-            if(!isFirst){
-                System.out.print(" - ");
-            }
-            System.out.print(a.valor);
-            imprime(a.direita, false);
-        
+    public NoArvore() {
+        this.valor = Integer.MIN_VALUE;
+        this.esquerda = null;
+        this.direita = null;
+    }    
+    
+    public void imprime(NoArvore a) {
+        imprimeRecursivo(a);
+    }
+    
+    private void imprimeRecursivo(NoArvore a) {
+        if (a == null) return;
+    
+        imprimeRecursivo(a.esquerda);
+    
+        // Use uma lógica para imprimir o separador apenas após o primeiro elemento
+        if (a != this) {
+            System.out.print(a.valor + " - ");
+        }else {
+            System.out.print(a.valor + " - ");
         }
+
+        imprimeRecursivo(a.direita);
     }
 
     public NoArvore busca(NoArvore raiz, int valorprocurado) {
@@ -36,7 +48,6 @@ public class NoArvore {
         if (a == null) {
             a = new NoArvore();
             a.valor = v;
-            a.esquerda = a.direita = null;
         }
         //Inserir na esquerda da árvore
         else if (v < a.valor) {
