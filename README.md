@@ -1,9 +1,9 @@
 
-Projeto de Estruturas de Dados - Árvore Binária de Busca (ABB)
+<h1>Projeto de Estruturas de Dados - Árvore Binária de Busca (ABB)</h1>
 
 Este projeto implementa uma Árvore Binária de Busca (ABB) em Java, permitindo a criação, inserção, remoção e busca de elementos. O programa também oferece funcionalidades para exibir a árvore em ordem (traversal em ordem), verificar se a árvore está balanceada e mostrar a altura das subárvores.
 
-Funcionalidades:
+<h2>Funcionalidades:</h2>
 <pre> 
 1.Criar árvore: Inicializa uma árvore vazia.
 2.Exibir árvore (Em-ordem): Exibe os elementos da árvore de forma ordenada (traversal em ordem).
@@ -11,8 +11,9 @@ Funcionalidades:
 4.Inserir valor: Insere um novo valor na árvore seguindo as regras da Árvore Binária de Busca.
 5.Remover valor: Remove um valor da árvore, ajustando os ponteiros conforme necessário.
 6.Verificar balanceamento: Verifica se a árvore está balanceada, ou seja, se a diferença de altura entre as subárvores é menor ou igual a 1.</pre>
+
+<h2>Como usar:</h2>
 <pre>
-Como usar:
 Compile e execute o código.
 No menu, selecione as opções para criar, inserir, buscar ou remover elementos da árvore.
 Verifique o balanceamento da árvore ou visualize sua estrutura em ordem.
