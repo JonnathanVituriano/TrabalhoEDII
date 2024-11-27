@@ -29,24 +29,24 @@ Para executar o projeto no **Visual Studio Code**, siga os passos abaixo:
    
    ```bash
    git clone https://github.com/seu-repositorio/aabb-java.git
-**Abra o projeto no VS Code.**
+Abra o projeto no VS Code.
 
 No VS Code, abra a pasta onde o projeto foi clonado.
 
-**Compile e execute o código:**
+Compile e execute o código:
 
 Pressione Ctrl + Shift + B para compilar o código.
 Pressione F5 para rodar o código no terminal integrado.
 Menu de opções: Após executar, será exibido um menu para interação com a Árvore Binária de Busca. Selecione as opções conforme desejado.
 
-2. **Compilação e Execução no Eclipse**
-Para executar o projeto no Eclipse, siga os passos abaixo:
+<h3>2. Compilação e Execução no Eclipse</h3>
+Para executar o projeto no <strong>Eclipse</strong>, siga os passos abaixo:
 
-##Pré-requisitos:
-Instale o Java JDK (versão 11 ou superior).
-Instale o Eclipse IDE (recomenda-se a versão para desenvolvedores Java).
-Passos:
-##Crie um novo projeto no Eclipse:
+<h4>Pré-requisitos:</h4>
+Instale o <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">Java JDK</a> (versão 11 ou superior).
+Instale o <a href="https://www.eclipse.org/downloads/">Eclipse IDE</a> (recomenda-se a versão para desenvolvedores Java).
+<h4>Passos:</h4>
+Crie um novo projeto no Eclipse:
 
 Abra o Eclipse e clique em File > New > Java Project.
 Dê um nome para o projeto (por exemplo: ArvoreBinariaDeBusca).
@@ -58,24 +58,23 @@ Compile e execute o código:
 
 Clique com o botão direito na classe Principal e selecione Run As > Java Application.
 O terminal do Eclipse exibirá o menu de opções para interação com a árvore.
-###Objetivo
-Este projeto foi desenvolvido como parte de um trabalho acadêmico para estudar e implementar conceitos fundamentais de estruturas de dados, como a Árvore Binária de Busca (ABB) e suas operações.
+<h2>Objetivo</h2>
+Este projeto foi desenvolvido como parte de um trabalho acadêmico para estudar e implementar conceitos fundamentais de estruturas de dados, como a <strong>Árvore Binária de Busca (ABB)</strong> e suas operações.
 
-##Como o código funciona:
-####Estrutura de classes:
+<h2>Como o código funciona:</h2> <h4>Estrutura de classes:</h4>
 NoArvore: Classe que representa um nó da árvore binária. Contém os atributos valor, esquerda e direita, além dos métodos para inserir, buscar, remover e imprimir elementos.
 
 Principal: Classe principal que contém a função main, que gerencia as operações de menu e interage com a árvore binária.
 
-##Operações realizadas:
+<h4>Operações realizadas:</h4>
 Inserção: Ao inserir um valor, o código insere no nó correto, respeitando as regras da Árvore Binária de Busca.
 Busca: Realiza uma busca recursiva pela árvore, retornando o nó correspondente ou null se o valor não for encontrado.
 Remoção: A remoção lida com os casos onde o nó a ser removido tem zero, um ou dois filhos.
 Exibição em ordem: A árvore é exibida de forma ordenada com um percurso em ordem (in-order traversal).
 Verificação de balanceamento: A árvore é considerada balanceada se a diferença de altura entre as subárvores esquerda e direita de cada nó for no máximo 1.
-Tecnologias utilizadas:
+<h2>Tecnologias utilizadas:</h2>
 Java 11 (ou superior)
 Eclipse IDE (para projetos Java)
 Visual Studio Code (para desenvolvimento em Java)
-###**Licença:**
-Este projeto está licenciado sob a MIT License - veja o arquivo LICENSE para mais detalhes.
+<h2>Licença:</h2>
+Este projeto está licenciado sob a MIT License - veja o arquivo <a href="LICENSE">LICENSE</a> para mais detalhes.
