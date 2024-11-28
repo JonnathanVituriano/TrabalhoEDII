@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Principal {
+    // Calcula a altura da árvore a partir de um nó
     public static int altura(NoArvore no) {
         if (no == null) {
             return 0;
@@ -10,54 +11,60 @@ public class Principal {
         return 1 + Math.max(alturaEsquerda, alturaDireita);
     }
 
+    // Verifica se a árvore está balanceada
     public static boolean estaBalanceada(NoArvore no) {
+
         return estaBalanceadaRecursivo(no) != -1 && verificarFolhasBalanceadas(no);
     }
     
+    // Verifica recursivamente se a árvore está balanceada
     private static int estaBalanceadaRecursivo(NoArvore no) {
         if (no == null) return 0;
-    
+        
         int alturaEsquerda = estaBalanceadaRecursivo(no.esquerda);
         if (alturaEsquerda == -1) return -1;
-    
+        
         int alturaDireita = estaBalanceadaRecursivo(no.direita);
         if (alturaDireita == -1) return -1;
-    
+        
         if (Math.abs(alturaEsquerda - alturaDireita) > 1) {
             return -1;
         }
-    
         return 1 + Math.max(alturaEsquerda, alturaDireita);
     }
     
+    // Verifica se todas as folhas da árvore estão em níveis próximos
     private static boolean verificarFolhasBalanceadas(NoArvore no) {
         if (no == null) return true;
-    
-        // Array para armazenar a profundidade mínima e máxima
-        int[] profundidades = new int[2]; // [0] = profundidade mínima, [1] = profundidade máxima
+        
+        int[] profundidades = new int[2];
         profundidades[0] = Integer.MAX_VALUE;
         profundidades[1] = Integer.MIN_VALUE;
-    
-        // Calcula profundidade mínima e máxima das folhas
+        
         calcularProfundidadeFolhas(no, 0, profundidades);
-    
-        // Verifica se a diferença entre a profundidade máxima e mínima é maior que 1
         return (profundidades[1] - profundidades[0]) <= 1;
     }
     
+    // Calcula a profundidade das folhas
     private static void calcularProfundidadeFolhas(NoArvore no, int profundidadeAtual, int[] profundidades) {
         if (no == null) return;
-    
-        // Verifica se é uma folha
+        
         if (no.esquerda == null && no.direita == null) {
+
             profundidades[0] = Math.min(profundidades[0], profundidadeAtual);
             profundidades[1] = Math.max(profundidades[1], profundidadeAtual);
         }
-    
-        // Verifica recursivamente as profundidades das subárvores
+        
         calcularProfundidadeFolhas(no.esquerda, profundidadeAtual + 1, profundidades);
         calcularProfundidadeFolhas(no.direita, profundidadeAtual + 1, profundidades);
-    }    
+    }
+
+    // Pausa o programa até o usuário pressionar Enter
+    private static void pausar(Scanner scanner) {
+        System.out.println("\nPressione Enter para continuar...");
+        scanner.nextLine();
+        scanner.nextLine();
+    }
     
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -65,6 +72,7 @@ public class Principal {
         int opcao;
 
         do {
+            // Exibe o menu de opções
             System.out.println("\n--- MENU ---");
             System.out.println("1. Criar árvore");
             System.out.println("2. Exibir árvore");
@@ -75,10 +83,10 @@ public class Principal {
             System.out.println("0. Sair");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
-
+        
             switch (opcao) {
                 case 1:
-                    abb = null;
+                    abb = null; // Cria uma nova árvore (reinicializa)
                     System.out.println("Árvore criada!");
                     break;
                 case 2:
@@ -91,7 +99,7 @@ public class Principal {
                         System.out.println("3. Pós-Ordem (Post-Order)");
                         System.out.print("Escolha uma opção: ");
                         int tipoExibicao = scanner.nextInt();
-
+        
                         switch (tipoExibicao) {
                             case 1:
                                 System.out.println("Exibindo em ordem (In-Order):");
@@ -108,18 +116,20 @@ public class Principal {
                             default:
                                 System.out.println("Opção inválida.");
                         }
-                        System.out.println(); // Nova linha após a exibição
+                        System.out.println();
                     }
+                    pausar(scanner);
                     break;
                 case 3:
                     System.out.print("Digite o valor a ser buscado: ");
-                    int valorBusca = scanner.nextInt();
+                    int valorBusca = scanner.nextInt(); 
                     NoArvore resultado = abb.busca(abb, valorBusca);
                     if (resultado == null) {
                         System.out.println("Valor não encontrado.");
                     } else {
                         System.out.println("Valor encontrado: " + resultado.valor);
                     }
+                    pausar(scanner);
                     break;
                 case 4:
                     System.out.print("Digite o valor a ser inserido: ");
@@ -134,7 +144,7 @@ public class Principal {
                 case 5:
                     System.out.print("Digite o valor a ser removido: ");
                     int valorRemover = scanner.nextInt();
-                    if (abb.busca(abb, valorRemover) != null) {
+                    if (abb != null && abb.busca(abb, valorRemover) != null) {
                         abb = abb.remover(abb, valorRemover);
                         System.out.println("Valor removido.");
                     } else {
@@ -147,15 +157,17 @@ public class Principal {
                     } else {
                         System.out.println("A árvore não está balanceada.");
                     }
+                    pausar(scanner);
                     break;
                 case 0:
                     System.out.println("Saindo...");
                     break;
                 default:
-                    System.out.println("Opção inválida!");
+                    System.out.println("Opção inválida!"); // Opção inválida
+                    pausar(scanner);
             }
         } while (opcao != 0);
-
+        
         scanner.close();
     }
 }
